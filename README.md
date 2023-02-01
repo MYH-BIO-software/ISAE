@@ -46,7 +46,7 @@ Idnetify_SAE.py [options] -t Input_file_for_call_peak -b Bam_file -n Experiment_
 --wellington_footprints Whether to execute footprint analysis,can choose "on" or "off".Default:on  
 --Dnase_wig_To_bw If choose "on" for  
 --wellington_footprints,this parameter can  choose "on" or "off" to decide whether to creat Dnase bw file.Default:on  
-###############Identify SAE
+###############Identify SAE  
 --c_proximal the cut off of footrpitn plvalue and footprint number to identify super proximal ATAC peak  
 --c_distal the cut off of footrpitn plvalue and footprint number to identify super distal ATAC peak  
 --TSS the promoter file of gene  
