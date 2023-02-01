@@ -26,7 +26,7 @@ export PATH=$PATH:/path/to/SAE/bin
 ### 1>Idnetify_SAE.py  
 The script was used to call ATAC broad peak, identify footprints in ATAC peak and super accessibility elements.    
 ```
-python3 Idnetify_SAE.py [options] -t Input_file_for_call_peak -b Bam_file -n Experiment_name  -o Output_directory  -g Effective_genome_size --g_file the_chrom_size_file  
+Idnetify_SAE.py [options] -t Input_file_for_call_peak -b Bam_file -n Experiment_name  -o Output_directory  -g Effective_genome_size --g_file the_chrom_size_file  
 ```
 * Explanation of parameters  
 -n Experiment name, which will be used to generate output file names  
@@ -45,7 +45,7 @@ python3 Idnetify_SAE.py [options] -t Input_file_for_call_peak -b Bam_file -n Exp
 -A  Wether the data is ATAC data.  
 --wellington_footprints Whether to execute footprint analysis,can choose "on" or "off".Default:on  
 --Dnase_wig_To_bw If choose "on" for --wellington_footprints,this parameter can  choose "on" or "off" to decide whether to creat Dnase bw file.Default:on  
-###############Identify super ATAC broad peak  
+###############Identify SAE
 --c_proximal the cut off of footrpitn plvalue and footprint number to identify super proximal ATAC peak  
 --c_distal the cut off of footrpitn plvalue and footprint number to identify super distal ATAC peak  
 --TSS the promoter file of gene  
@@ -57,12 +57,12 @@ python3 Idnetify_SAE.py [options] -t Input_file_for_call_peak -b Bam_file -n Exp
 ### 2>link_ATAC_peak_with_gene.py  
 The script was used to assign super and typical accessibility elements to each expressed gene and compare the gene expression between the two group genes.    
 ```
-python3 link_ATAC_peak_with_gene.py -s super peak bed file -t typical peak bed file -g  gene tss bed file  -G gff annotation file  -k houseKeepgene_ID_list -h Print this help menu  
+link_ATAC_peak_with_gene.py -s super peak bed file -t typical peak bed file -g  gene tss bed file  -G gff annotation file  -k houseKeepgene_ID_list -h Print this help menu  
 ```
 ### 3>DifferentialSAE.py  
 The script was used to identify differential SAEs between different tissues/cell stages and types considering the change both in ATAC signal and TF footprint binding.     
 ```
-python3 DifferentialSAE.py  -pt  Treatment_ATAC_broad_peak_bed_file -pc   Control_ATAC_broad_bed_file -bt  Treatment_bam_file  -bc  Control_bam_file  -st  Treatment_SAE_bed_file  -sc  Control_SAE_bed_file -nt Treatment_sample_name -nc Control_sample_name -o output_path  
+DifferentialSAE.py  -pt  Treatment_ATAC_broad_peak_bed_file -pc   Control_ATAC_broad_bed_file -bt  Treatment_bam_file  -bc  Control_bam_file  -st  Treatment_SAE_bed_file  -sc  Control_SAE_bed_file -nt Treatment_sample_name -nc Control_sample_name -o output_path  
 ```
 * Explanation of parameters  
 -pt ATAC broad peak bed file of treatment group  
