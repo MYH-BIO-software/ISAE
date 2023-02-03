@@ -1,4 +1,4 @@
-#!/home/miniconda3/envs/software/bin/python3
+#!/usr/bin/python3
 import getopt, sys
 
 opts, args = getopt.getopt(sys.argv[1:], "s:t:g:G:e:o:k:h")
