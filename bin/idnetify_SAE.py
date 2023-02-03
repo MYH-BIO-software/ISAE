@@ -1,4 +1,4 @@
-#!/home/miniconda3/envs/software/bin/python
+#!/usr/bin/python3
 #将ATAC peak区分为proximal和distal两类分别鉴定，并可以选择除去落在houseKeeping基因TSS region的ATAC peak
 import getopt, sys
 
