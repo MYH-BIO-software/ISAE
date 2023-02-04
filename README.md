@@ -54,14 +54,22 @@ Idnetify_SAE.py [options] -t Input_align_file_for_call_peak -b Bam_file -n Exper
 --houseKeeping&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Bed file of houseKeeping gene promoter or TSS site.  
 -h&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Print this help menu  
 * Usage examples  
-Ⅰ.The following is an example using align file as the input, the analysis process includes peak calling, footprint analysis and SAE identification.  
+I.The following is an example using align file as the input, the analysis process includes peak calling, footprint analysis and SAE identification.  
  ```  
 Idnetify_SAE.py -t C2C12-DM60h-ATAC.nodup.tn5.tagAlign.gz -g mm -n C2C12_DM60h_ATAC -A -p 8 -b C2C12-DM60h-ATAC.nodup.bam --outdir /path/to/C2C12_DM60h  --g_file mm11.chrom.sizes --Pvalue 10 --c_distal 10 --c_proximal 10   --TSS C2C12_DM60h_promoter.bed  --houseKeeping mouse_houseKeeping_gene_TSS_region.bed    
  ```  
+&nbsp; &nbsp; &nbsp; &nbsp; II.The following is an example skipping peak calling. The parameter "-t", "-g", "--Pvalue", which used for peak calling, are replaced by "--Broad_peak".  
+ ``` 
+Idnetify_SAE.py --macs2_call_peak off --Broad_peak C2C12_DM60h_ATAC_peaks.broadPeak_pfilter.bed.sort.bed -n C2C12_DM60h_ATAC -A -p 8 -b C2C12-DM60h-ATAC.nodup.bam --outdir /path/to/C2C12_DM60h  --g_file mm11.chrom.sizes  --c_distal 10 --c_proximal 10   --TSS C2C12_DM60h_promoter.bed  --houseKeeping mouse_houseKeeping_gene_TSS_region.bed   
+ ``` 
+ &nbsp; &nbsp; &nbsp; &nbsp; III. The following is an example skipping peak calling and footprint analysis. The parameters "-t", "-g", "--Pvalue", which used for peak calling, are replaced by "--Broad_peak". The parameters "-b", "-A" ,"-p" which used for footprint analysis, are replaced by "--footprint_file". 
+ ```
+ Idnetify_SAE.py  --wellington_footprints off --Broad_peak C2C12_DM60h_ATAC_peaks.broadPeak_pfilter.bed.sort.bed --Footprint_file C2C12_DM60h_ATAC.WellingtonFootprints.score.bed -n C2C12_DM60h_ATAC --outdir /path/to/C2C12_DM60h  --g_file mm11.chrom.sizes  --c_distal 10 --c_proximal 10   --TSS C2C12_DM60h_promoter.bed  --houseKeeping mouse_houseKeeping_gene_TSS_region.bed
+ ```
 ### 2>link_ATAC_peak_with_gene.py  
 The script was used to assign super and typical accessibility elements to each expressed gene and compare the gene expression between the two group genes.    
 ```
-link_ATAC_peak_with_gene.py -s super peak bed file -t typical peak bed file -g  gene tss bed file  -G gff annotation file  -k houseKeepgene_ID_list -h Print this help menu  
+link_ATAC_peak_with_gene.py -s super peak bed file -t typical peak bed file -g  gene tss bed file  -G gff annotation file  -k houseKeepgene_ID_list   
 ```
 ### 3>DifferentialSAE.py  
 The script was used to identify differential SAEs between different tissues/cell stages and types considering the change both in ATAC signal and TF footprint binding.     
