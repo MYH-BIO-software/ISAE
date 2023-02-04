@@ -64,7 +64,7 @@ Idnetify_SAE.py --macs2_call_peak off --Broad_peak C2C12_DM60h_ATAC_peaks.broadP
  ``` 
  &nbsp; &nbsp; &nbsp; &nbsp; III. The following is an example skipping peak calling and footprint analysis. The parameters "-t", "-g", "--Pvalue", which used for peak calling, are replaced by "--Broad_peak". The parameters "-b", "-A" ,"-p" which used for footprint analysis, are replaced by "--footprint_file". 
  ```
- Idnetify_SAE.py  --wellington_footprints off --Broad_peak C2C12_DM60h_ATAC_peaks.broadPeak_pfilter.bed.sort.bed --Footprint_file C2C12_DM60h_ATAC.WellingtonFootprints.score.bed -n C2C12_DM60h_ATAC --outdir /path/to/C2C12_DM60h  --g_file mm11.chrom.sizes  --c_distal 10 --c_proximal 10   --TSS C2C12_DM60h_promoter.bed  --houseKeeping mouse_houseKeeping_gene_TSS_region.bed
+ Idnetify_SAE.py --macs2_call_peak off --wellington_footprints off --Broad_peak C2C12_DM60h_ATAC_peaks.broadPeak_pfilter.bed.sort.bed --Footprint_file C2C12_DM60h_ATAC.WellingtonFootprints.score.bed -n C2C12_DM60h_ATAC --outdir /path/to/C2C12_DM60h  --g_file mm11.chrom.sizes  --c_distal 10 --c_proximal 10   --TSS C2C12_DM60h_promoter.bed  --houseKeeping mouse_houseKeeping_gene_TSS_region.bed
  ```
 ### 2>link_ATAC_peak_with_gene.py  
 The script was used to assign super and typical accessibility elements to each expressed gene and compare the gene expression between the two group genes.    
