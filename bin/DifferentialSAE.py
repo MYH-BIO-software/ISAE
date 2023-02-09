@@ -14,7 +14,7 @@ parser.add_option("--ft", dest="treatment_footprint", default=None,help = "Footp
 parser.add_option("--fc", dest="control_footprint", default=None,help = "Footprint bed file of control group.")
 parser.add_option("--fs", dest="footprint_score", default=None,help = "Score threshold of footprint of treatment and control group. The footprint with score > set threshold would be used to caclulate footprint number in ATAC broad peak. Recommending minimum footprint score threshold for use in SAE identification of treatment and control group.")
 parser.add_option("-g", dest="genome", default=None,help = "Available Genomes:[mm10,hg38,oviAri4,susScr11,bosTau9,galGal5],If no genome is available, specify 'none'.")
-parser.add_option("-d", dest="diff_analysis", default="edgeR",help = "Differential Expression program selection:[DESeq2,DESeq,edgeR,limma]")
+parser.add_option("-d", dest="diff_analysis", default="edgeR",help = "Differential Expression program selection:[DESeq2,DESeq,edgeR,limma], Default:edgeR.")
 parser.add_option("-o", dest="output_path", default=None,help = "Path to output directory.")
 (options,args) = parser.parse_args()
 
