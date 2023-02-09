@@ -44,7 +44,6 @@ Idnetify_SAE.py [options] -t Input_align_file_for_call_peak -b Bam_file -n Exper
 -b&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Bam file of ATAC-seq data.   
 -A&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ATAC-seq mode (default: True).      
 --wellington_footprints&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Whether to execute footprint analysis,can choose "on" or "off".Default:on  
---Dnase_wig_To_bw&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; If choose "on" for --wellington_footprints, this parameter can choose "on" or "off" to decide whether to creat bw file of cut information from a ATAC-seq experiment. Default: on.  
 ###############Identify SAE  
 --proximal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; Whether to identify proximal(TSS)-SAE, can choose "on" or "off". Default: on  
 --distal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; Whether to identify distal-SAE,can choose "on" or "off". Default: on  
@@ -78,11 +77,12 @@ link_ATAC_peak_with_gene.py [options] -s SAE_bed_file -t TAE_bed_file -g  Gene_t
 -G&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &ensp; Gff annotation file of gene.  
 -e&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Gene expression file.  
 -k&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  House keeping gene ID (Optional parameter). If provide this file, these housekeeping genes will be removed in the gene list associated with SAE and TAE.  
--o&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Path to output directory.  
+-o&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Path to output directory. 
+-m&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  The way to link gene with ATAC peak according to the type of SAE and TAE. Could choose "distal" or "proximal".
 -h&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Print this help menu.  
 * Usage examples  
 ```
- link_ATAC_peak_with_gene.py -s C2C12_DM60h_ATAC_super_ATAC_broad_peak.bed -t C2C12_DM60h_ATAC_typical_ATAC_broad_peak.bed -g C2C12_expressed_gene_ID_TSS_site_position -G gencode.vM11.chr_patch_hapl_scaff.annotation.gff3 -e C2C12_DM60h_RNAseq_cpm_deseq2_average.txt -k houseKeeping_gene_ID  -o link_gene
+ link_ATAC_peak_with_gene.py -s C2C12_DM60h_ATAC_super_ATAC_broad_peak.bed -t C2C12_DM60h_ATAC_typical_ATAC_broad_peak.bed -g C2C12_expressed_gene_ID_TSS_site_position -G gencode.vM11.chr_patch_hapl_scaff.annotation.gff3 -e C2C12_DM60h_RNAseq_cpm_deseq2_average.txt -k houseKeeping_gene_ID  -o /Path/to/link_gene  -m distal
 ```
 ### 3>DifferentialSAE.py  
 The script was used to identify differential SAEs between different tissues/cell stages and types considering the change both in ATAC signal and TF footprint binding.     
@@ -100,6 +100,8 @@ DifferentialSAE.py  --pt  Treatment_ATAC_broad_peak_bed_file --pc   Control_ATAC
 --nc&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Experiment name of control group.    
 --ft&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Footprint bed file of treatment group.    
 --fc&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Footprint bed file of control group.  
---fs&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Score threshold of footprint of treatment and control group. The footprint with score > set threshold would be used to caclulate footprint number in ATAC broad peak. Recommending minimum footprint score threshold for use in SAE identification of treatment and control group.  
+--fs&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Score threshold of footprint of treatment and control group. The footprint with score > set threshold would be used to caclulate footprint number in ATAC broad peak. Recommending minimum footprint score threshold for use in SAE identification of treatment and control group.
+-g&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;     Available Genomes:[mm10,hg38,oviAri4,susScr11,bosTau9,galGal5],If no genome is available, specify 'none'.
+-d&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    Differential Expression program selection:[DESeq2,DESeq,edgeR,limma], Default:edgeR.
 -o&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Path to output directory.  
 -h&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Print this help menu.  
