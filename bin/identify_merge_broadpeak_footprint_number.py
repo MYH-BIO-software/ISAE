@@ -1,4 +1,4 @@
-#!/home/miniconda3/envs/software/bin/python
+#!/usr/bin/python
 import getopt, sys
 
 opts, args = getopt.getopt(sys.argv[1:], "t:c:i:o:h",["nt=","nc="])
