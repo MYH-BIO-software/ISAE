@@ -77,7 +77,7 @@ link_ATAC_peak_with_gene.py [options] -s SAE_bed_file -t TAE_bed_file -g  Gene_t
 -G&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &ensp; Gff annotation file of gene.  
 -e&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Gene expression file.  
 -k&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  House keeping gene ID (Optional parameter). If provide this file, these housekeeping genes will be removed in the gene list associated with SAE and TAE.  
--o&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Path to output directory. 
+-o&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Path to output directory.   
 -m&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  The way to link gene with ATAC peak according to the type of SAE and TAE. Could choose "distal" or "proximal".  
 -h&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Print this help menu.  
 * Usage examples  
@@ -99,9 +99,9 @@ DifferentialSAE.py  --pt  Treatment_ATAC_broad_peak_bed_file --pc   Control_ATAC
 --nt&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Experiment name of treatment group.      
 --nc&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Experiment name of control group.    
 --ft&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Footprint bed file of treatment group.    
---fc&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Footprint bed file of control group.  
---fs&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Score threshold of footprint of treatment and control group. The footprint with score > set threshold would be used to caclulate footprint number in ATAC broad peak. Recommending minimum footprint score threshold for use in SAE identification of treatment and control group.
--g&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;     Available Genomes:[mm10,hg38,oviAri4,susScr11,bosTau9,galGal5],If no genome is available, specify 'none'.  
--d&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    Differential Expression program selection:[DESeq2,DESeq,edgeR,limma], Default:edgeR.  
+--fc&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Footprint bed file of control group.    
+--fs&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Score threshold of footprint of treatment and control group. The footprint with score > set threshold would be used to caclulate footprint number in ATAC broad peak. Recommending minimum footprint score threshold for use in SAE identification of treatment and control group.  
+-g&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;     Available Genomes:[mm10,hg38,oviAri4,susScr11,bosTau9,galGal5],If no genome is available, specify 'none'.    
+-d&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    Differential Expression program selection:[DESeq2,DESeq,edgeR,limma], Default:edgeR.    
 -o&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Path to output directory.  
 -h&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Print this help menu.  
